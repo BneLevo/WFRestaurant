@@ -1,0 +1,11 @@
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\bin\Debug\WFRestaurant.exe.config
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\bin\Debug\WFRestaurant.exe
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\bin\Debug\WFRestaurant.pdb
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.Form1.resources
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.exe
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.pdb
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.exe.config

@@ -13,7 +13,7 @@ namespace WFRestaurant
 {
     public partial class Form1 : Form
     {
-        
+
         List<Article> articles = new List<Article>();
 
         public Form1()
@@ -22,62 +22,64 @@ namespace WFRestaurant
             Database();
         }
 
+        // Créer chaque article avec les panels
         private void DisplayAnArticle(Article article)
         {
-
             Panel panel = new Panel
             {
-                Size = new Size(200, 170),
+                Size = new Size(220, 200),
                 BackColor = Color.DarkOrange,
+                Margin = new Padding(10)
             };
 
             PictureBox pictureBox = new PictureBox
             {
-                Size = new Size(120, 60),
-                Location = new Point(40, 15),
+                Size = new Size(140, 70),
+                Location = new Point((panel.Width - 140) / 2, 10),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
+            // Pour l'image
+            string categoryFolder = "";
+            if (article is Food) categoryFolder = "food";
+            else if (article is Drink) categoryFolder = "drink";
+            else if (article is Dessert) categoryFolder = "dessert";
+
+            if (!string.IsNullOrEmpty(article.Image))
+            {
+                string fullImagePath = Path.Combine(Application.StartupPath, "img", categoryFolder, article.Image);
+                pictureBox.Image = Image.FromFile(fullImagePath);
+            }
+
 
             Label labelNomArticle = new Label
             {
                 Text = article.Name,
-                Location = new Point(40, 100),
-                Size = new Size(150, 20),
-                TextAlign = ContentAlignment.MiddleCenter
+                Location = new Point(10, pictureBox.Bottom + 10),
+                Size = new Size(panel.Width - 20, 25),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                ForeColor = Color.White
             };
 
             Label labelPrixArticle = new Label
             {
                 Text = article.Price + ".-",
-                Location = new Point(50, 125),
-                Size = new Size(120, 20),
-                TextAlign = ContentAlignment.MiddleCenter
+                Location = new Point(10, labelNomArticle.Bottom + 5),
+                Size = new Size(panel.Width - 20, 20),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 9, FontStyle.Regular),
+                ForeColor = Color.White
             };
 
             Button buttonAddToBag = new Button
             {
                 Text = "Add To Bag",
-                Location = new Point(50, 130),
-                Size = new Size(120, 30),
-                TextAlign = ContentAlignment.MiddleCenter,
+                Size = new Size(120, 35),
+                Location = new Point((panel.Width - 120) / 2, labelPrixArticle.Bottom + 10),
                 BackColor = Color.White,
-                ForeColor = Color.Orange
+                ForeColor = Color.Orange,
+                FlatStyle = FlatStyle.Flat
             };
-
-            //buttonAddToBag.MouseClick += (s, e) =>
-            //{
-            //    BagManager.AddToBag(chaussure.Id);
-
-            //    if (BagManager.Bag.Contains(chaussure.Id))
-            //    {
-            //        MessageBox.Show("Ajouté au panier");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error");
-            //    }
-
-            //};
 
             panel.Controls.Add(pictureBox);
             panel.Controls.Add(labelNomArticle);
@@ -87,8 +89,9 @@ namespace WFRestaurant
             DisplayArticles.Controls.Add(panel);
             DisplayArticles.FlowDirection = FlowDirection.LeftToRight;
             DisplayArticles.WrapContents = true;
-
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -102,7 +105,7 @@ namespace WFRestaurant
         private void button2_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            
+
             var drinks = articles.Where(a => a.Category == "Drink");
             foreach (var drink in drinks) DisplayAnArticle(drink);
         }
@@ -127,19 +130,13 @@ namespace WFRestaurant
             articles.Clear();
             DisplayArticles.Controls.Clear();
 
-            Food pizza = new Food("Pizza", 15, "");
-            articles.Add(pizza);
-            Food burger = new Food("Burger", 10, "");
-            articles.Add(burger);
-            Food frenchFries = new Food("French Fries", 5, "");
-            articles.Add(frenchFries);
-            Food entrecote = new Food("Entrecote", 25, "");
-            articles.Add(entrecote);
-            Food fondue = new Food("Fondue", 15, "");
-            articles.Add(fondue);
+            articles.Add(new Food("Pizza", 15, "pizza.png"));
+            articles.Add(new Food("Burger", 10, ""));
+            articles.Add(new Food("French Fries", 5, ""));
+            articles.Add(new Food("Entrecote", 25, ""));
+            articles.Add(new Food("Fondue", 15, ""));
 
-            Drink cola = new Drink("Cola", 2, "");
-            articles.Add(cola);
+            articles.Add(new Drink("Cola", 2, ""));
 
 
             foreach (var article in articles)

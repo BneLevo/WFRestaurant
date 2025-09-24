@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\nourriture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\Github\\WFRestaurant\\WFRestaurant\\wfrestaurant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -28,14 +28,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Nourriture.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Nourriture.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Nourriture.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\Nourriture.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Nourriture.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Nourriture.cs",
               "RelativeToolTip": "WFRestaurant\\Nourriture.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "WFRestaurant",
-              "WhenOpened": "2025-09-04T09:13:15.298Z",
+              "WhenOpened": "2025-09-18T07:13:07.531Z",
               "EditorCaption": ""
             },
             {
@@ -44,17 +43,10 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Github\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Form1.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\Form1.cs",
-<<<<<<< HEAD
               "ToolTip": "C:\\Users\\Admin\\Documents\\Github\\WFRestaurant\\WFRestaurant\\WFRestaurant\\Form1.cs [Design]",
               "RelativeToolTip": "WFRestaurant\\Form1.cs [Design]",
-=======
-              "ToolTip": "WFRestaurant/Form1.cs",
->>>>>>> 05cf6f6fdbdc2dd2752c46e9e5df31344d0a9fe9
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "WFRestaurant",
-              "OverriddenToolTip": "WFRestaurant/Form1.cs",
-              "WhenOpened": "2025-09-04T08:41:34.452Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-04T08:41:34.452Z"
             }
           ]
         }

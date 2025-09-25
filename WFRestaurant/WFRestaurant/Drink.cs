@@ -4,6 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Nom : Ozgun
+// Nom : Fischer
+// Prénom : Levent
+// Prénom : Adrian
+// Date : 04.09.2025
+// Nom du projet : WFRestaurant
+
 namespace WFRestaurant
 {
     class Drink : Article

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="BagManager.cs" />
     <Compile Include="Dessert.cs" />
     <Compile Include="Drink.cs" />
     <Compile Include="Food.cs" />

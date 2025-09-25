@@ -9,3 +9,4 @@ C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug
 C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.exe
 C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.pdb
 C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.exe.config
+C:\Users\Admin\Documents\GitHub\WFRestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.Panier.resources

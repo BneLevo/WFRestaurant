@@ -26,6 +26,7 @@ namespace WFRestaurant
         {
             InitializeComponent();
             Database();
+            UpdateBagTotal();
         }
 
         // Affiche un article avec un panel
@@ -170,13 +171,11 @@ namespace WFRestaurant
             }
         }
 
-        // Affiche le contenu du panier
         private void btnPanier_Click(object sender, EventArgs e)
         {
-            DisplayArticles.Controls.Clear();
-            // Affiche les articles du panier
-            BagManager.DisplayBag(DisplayArticles);
-            UpdateBagTotal();
+           Panier panier = new Panier();
+           panier.Show();
+           this.Hide();
         }
 
         // Affiche tous les articles
@@ -189,11 +188,11 @@ namespace WFRestaurant
             }
         }
 
-        // Met à jour le label du total du panier
         private void UpdateBagTotal()
         {
             int total = BagManager.Bag.Sum(a => a.Price);
             lblTotal.Text = $"Total : {total}.-";
         }
+
     }
 }

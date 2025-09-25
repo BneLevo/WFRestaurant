@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace WFRestaurant
 {
-    public static class BagManager
+    public class BagManager
     {
         // Liste des articles ajoutés au panier
         public static List<Article> Bag = new List<Article>();
@@ -24,6 +24,11 @@ namespace WFRestaurant
         public static void AddToBag(Article article)
         {
             Bag.Add(article);
+        }
+
+        public static void RemoveFromBag(Article article)
+        {
+            Bag.Remove(article);
         }
 
         // Affiche les articles du panier
@@ -77,10 +82,29 @@ namespace WFRestaurant
                     ForeColor = Color.White
                 };
 
+                // Bouton pour ajouter l'article au panier
+                Button buttonRemoveFromBag = new Button
+                {
+                    Text = "Remove from bag",
+                    Size = new Size(120, 35),
+                    Location = new Point((panel.Width - 120) / 2, labelPrixArticle.Bottom + 10),
+                    BackColor = Color.White,
+                    ForeColor = Color.Orange,
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                buttonRemoveFromBag.Click += (s, e) =>
+                {
+                    BagManager.RemoveFromBag(article);
+                    // Met à jour le total du panier
+                    MessageBox.Show($"{article.Name} has been removed from your bag.");
+                };
+
                 // Ajout des contrôles au panel
                 panel.Controls.Add(pictureBox);
                 panel.Controls.Add(labelNomArticle);
                 panel.Controls.Add(labelPrixArticle);
+                panel.Controls.Add(buttonRemoveFromBag);
 
                 // Ajout du panel à l'affichage
                 displayPanel.Controls.Add(panel);

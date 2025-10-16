@@ -1,6 +1,6 @@
 ﻿namespace WFRestaurant
 {
-    partial class Form1
+    partial class Homepage
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -33,15 +33,15 @@
             this.btnDessert = new System.Windows.Forms.Button();
             this.btnTout = new System.Windows.Forms.Button();
             this.DisplayArticles = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPanier = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.header1 = new WFRestaurant.Header();
             this.SuspendLayout();
             // 
             // btnNourriture
             // 
-            this.btnNourriture.Location = new System.Drawing.Point(18, 268);
-            this.btnNourriture.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNourriture.Location = new System.Drawing.Point(25, 261);
             this.btnNourriture.Name = "btnNourriture";
-            this.btnNourriture.Size = new System.Drawing.Size(196, 45);
+            this.btnNourriture.Size = new System.Drawing.Size(131, 29);
             this.btnNourriture.TabIndex = 0;
             this.btnNourriture.Text = "Nourriture";
             this.btnNourriture.UseVisualStyleBackColor = true;
@@ -49,10 +49,9 @@
             // 
             // btnBoissons
             // 
-            this.btnBoissons.Location = new System.Drawing.Point(18, 358);
-            this.btnBoissons.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBoissons.Location = new System.Drawing.Point(25, 320);
             this.btnBoissons.Name = "btnBoissons";
-            this.btnBoissons.Size = new System.Drawing.Size(196, 45);
+            this.btnBoissons.Size = new System.Drawing.Size(131, 29);
             this.btnBoissons.TabIndex = 1;
             this.btnBoissons.Text = "Boissons";
             this.btnBoissons.UseVisualStyleBackColor = true;
@@ -60,10 +59,9 @@
             // 
             // btnDessert
             // 
-            this.btnDessert.Location = new System.Drawing.Point(18, 445);
-            this.btnDessert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDessert.Location = new System.Drawing.Point(25, 376);
             this.btnDessert.Name = "btnDessert";
-            this.btnDessert.Size = new System.Drawing.Size(196, 45);
+            this.btnDessert.Size = new System.Drawing.Size(131, 29);
             this.btnDessert.TabIndex = 2;
             this.btnDessert.Text = "Dessert";
             this.btnDessert.UseVisualStyleBackColor = true;
@@ -71,10 +69,9 @@
             // 
             // btnTout
             // 
-            this.btnTout.Location = new System.Drawing.Point(18, 180);
-            this.btnTout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTout.Location = new System.Drawing.Point(25, 204);
             this.btnTout.Name = "btnTout";
-            this.btnTout.Size = new System.Drawing.Size(196, 45);
+            this.btnTout.Size = new System.Drawing.Size(131, 29);
             this.btnTout.TabIndex = 3;
             this.btnTout.Text = "Tout";
             this.btnTout.UseVisualStyleBackColor = true;
@@ -83,51 +80,44 @@
             // DisplayArticles
             // 
             this.DisplayArticles.AutoScroll = true;
-            this.DisplayArticles.Location = new System.Drawing.Point(328, 180);
-            this.DisplayArticles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DisplayArticles.Location = new System.Drawing.Point(219, 117);
             this.DisplayArticles.Name = "DisplayArticles";
-            this.DisplayArticles.Size = new System.Drawing.Size(1118, 649);
+            this.DisplayArticles.Size = new System.Drawing.Size(745, 422);
             this.DisplayArticles.TabIndex = 4;
-            // 
-            // btnPanier
-            // 
-            this.btnPanier.Location = new System.Drawing.Point(18, 535);
-            this.btnPanier.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPanier.Name = "btnPanier";
-            this.btnPanier.Size = new System.Drawing.Size(196, 45);
-            this.btnPanier.TabIndex = 5;
-            this.btnPanier.Text = "Panier";
-            this.btnPanier.UseVisualStyleBackColor = true;
-            this.btnPanier.Click += new System.EventHandler(this.btnPanier_Click);
             // 
             // lblTotal
             // 
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.lblTotal.Location = new System.Drawing.Point(18, 620);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(196, 30);
             this.lblTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.Black;
+            this.lblTotal.Location = new System.Drawing.Point(21, 506);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(131, 20);
+            this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total : 0.-";
-            this.Controls.Add(this.lblTotal);
             // 
-            // Form1
+            // header1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.header1.Location = new System.Drawing.Point(25, 11);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(908, 100);
+            this.header1.TabIndex = 6;
+            // 
+            // Homepage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1464, 874);
+            this.ClientSize = new System.Drawing.Size(976, 568);
+            this.Controls.Add(this.header1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnPanier);
             this.Controls.Add(this.DisplayArticles);
             this.Controls.Add(this.btnTout);
             this.Controls.Add(this.btnDessert);
             this.Controls.Add(this.btnBoissons);
             this.Controls.Add(this.btnNourriture);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "Homepage";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -138,8 +128,8 @@
         private System.Windows.Forms.Button btnDessert;
         private System.Windows.Forms.Button btnTout;
         private System.Windows.Forms.FlowLayoutPanel DisplayArticles;
-        private System.Windows.Forms.Button btnPanier;
         private System.Windows.Forms.Label lblTotal;
+        private Header header1;
     }
 }
 

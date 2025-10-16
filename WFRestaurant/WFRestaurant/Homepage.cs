@@ -10,22 +10,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Nom : Ozgun
-// Nom : Fischer
 // Prénom : Levent
-// Prénom : Adrian
-// Date : 04.09.2025
+// Date : 16.10.2025
 // Nom du projet : WFRestaurant
 
 namespace WFRestaurant
-{    public partial class Form1 : Form
-    {
-        // Liste de tous les articles disponibles (nourriture, boisson, dessert)
-        List<Article> articles = new List<Article>();
-
-        public Form1()
+{    public partial class Homepage : Form
+    { 
+        public Homepage()
         {
             InitializeComponent();
-            Database();
+
+            // Affichage les articles quand le programe est lancé
+            Database.DatabaseArticles();
+            foreach (var article in Database.articles)
+            {
+                DisplayAnArticle(article);
+            }
+
+            DisplayArticles.Controls.Clear();
             UpdateBagTotal();
         }
 
@@ -99,7 +102,7 @@ namespace WFRestaurant
                 BagManager.AddToBag(article);
                 // Met à jour le total du panier
                 UpdateBagTotal();
-                MessageBox.Show($"{article.Name} has been added to your bag.");
+                MessageBox.Show($"{article.Name} a été ajouté à votre panier.");
             };
 
             // Ajout des contrôles au panel
@@ -114,11 +117,28 @@ namespace WFRestaurant
             DisplayArticles.WrapContents = true;
         }
 
+        // Le prix total
+        private void UpdateBagTotal()
+        {
+            int total = BagManager.Bag.Sum(a => a.Price);
+            lblTotal.Text = $"Total : {total}.-";
+        }
+
+        // Affiche tous les articles
+        private void btnTout_Click(object sender, EventArgs e)
+        {
+            DisplayArticles.Controls.Clear();
+            foreach (var article in Database.articles)
+            {
+                DisplayAnArticle(article);
+            }
+        }
+
         // Affiche uniquement la nourriture
         private void btnNourriture_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var foods = articles.Where(a => a.Category == "Food");
+            var foods = Database.articles.Where(a => a.Category == "Food");
             foreach (var food in foods) DisplayAnArticle(food);
         }
 
@@ -126,7 +146,7 @@ namespace WFRestaurant
         private void btnBoissons_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var drinks = articles.Where(a => a.Category == "Drink");
+            var drinks = Database.articles.Where(a => a.Category == "Drink");
             foreach (var drink in drinks) DisplayAnArticle(drink);
         }
 
@@ -134,65 +154,8 @@ namespace WFRestaurant
         private void btnDessert_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var desserts = articles.Where(a => a.Category == "Dessert");
+            var desserts = Database.articles.Where(a => a.Category == "Dessert");
             foreach (var dessert in desserts) DisplayAnArticle(dessert);
         }
-
-        // Base de données avec les articles
-        private void Database()
-        {
-            articles.Clear();
-            DisplayArticles.Controls.Clear();
-
-            // Nourriture
-            articles.Add(new Food("Pizza", 15, "pizza.png"));
-            articles.Add(new Food("Burger", 10, "burger.png"));
-            articles.Add(new Food("Frites", 5, "frites.png"));
-            articles.Add(new Food("Entrecôte", 25, "entrecote.png"));
-            articles.Add(new Food("Pâte Bolognaise", 15, "patesBolo.png"));
-
-            // Boisson
-            articles.Add(new Drink("Eau", 1, "eau.png"));
-            articles.Add(new Drink("Cola", 2, "cola.png"));
-            articles.Add(new Drink("Ice Tea", 2, "iceTea.png"));
-            articles.Add(new Drink("Bierre", 3, "beer.png"));
-            articles.Add(new Drink("Vin", 4, "wine.png"));
-
-            // Dessert
-            articles.Add(new Dessert("Gâteau au chocolat", 8, "chocoCake.png"));
-            articles.Add(new Dessert("Cheese cake", 8, "cheeseCake.png"));
-            articles.Add(new Dessert("Glaces", 5, "iceCream.png"));
-            articles.Add(new Dessert("Salade de fruits", 5, "fruits.png"));
-            articles.Add(new Dessert("Yogurt", 2, "yogurt.png"));
-
-            foreach (var article in articles)
-            {
-                DisplayAnArticle(article);
-            }
-        }
-
-        private void btnPanier_Click(object sender, EventArgs e)
-        {
-           Panier panier = new Panier();
-           panier.Show();
-           this.Hide();
-        }
-
-        // Affiche tous les articles
-        private void btnTout_Click(object sender, EventArgs e)
-        {
-            DisplayArticles.Controls.Clear();
-            foreach (var article in articles)
-            {
-                DisplayAnArticle(article);
-            }
-        }
-
-        private void UpdateBagTotal()
-        {
-            int total = BagManager.Bag.Sum(a => a.Price);
-            lblTotal.Text = $"Total : {total}.-";
-        }
-
     }
 }

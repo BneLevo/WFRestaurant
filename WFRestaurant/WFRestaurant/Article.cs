@@ -34,12 +34,22 @@ namespace WFRestaurant
         public string Category { get => _category; set => _category = value; }
 
 
+        public Article()
+        {
+
+        }
+
         // Constructeur pour créer un article
         public Article(string name, int price, string image)
         {
             Name = name;
             Price = price;
             Image = image;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} ({Category}) - {Price}.-";
         }
     }
 }

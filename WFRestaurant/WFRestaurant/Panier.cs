@@ -26,15 +26,7 @@ namespace WFRestaurant
             UpdateBagTotal();
         }
 
-        // Pour revenir au restaurant
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Homepage form = new Homepage();
-            form.Show();
-            this.Hide();
-        }
-
-        // Met à jour le label du total du panier
+        // Mets à jour le label du total du panier
         private void UpdateBagTotal()
         {
             int total = BagManager.Bag.Sum(a => a.Price);

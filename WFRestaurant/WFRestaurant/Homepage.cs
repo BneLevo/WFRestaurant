@@ -11,31 +11,37 @@ using System.Windows.Forms;
 
 // Nom : Ozgun
 // Prénom : Levent
-// Date : 16.10.2025
+// Date : 26.10.2025
 // Nom du projet : WFRestaurant
 
 namespace WFRestaurant
-{    public partial class Homepage : Form
-    { 
+{
+    public partial class Homepage : Form
+    {
+        // Liste des articles chargés depuis la base de données
+        private List<Article> articles = new List<Article>();
+
         public Homepage()
         {
             InitializeComponent();
 
-            // Affichage les articles quand le programe est lancé
-            Database.DatabaseArticles();
-            foreach (var article in Database.articles)
+            // Chargement des articles depuis la base de données
+            articles = SqliteDataAccess.LoadArticles();
+
+            foreach (var article in articles)
             {
                 DisplayAnArticle(article);
             }
 
-            DisplayArticles.Controls.Clear();
             UpdateBagTotal();
         }
 
-        // Affiche un article avec un panel
+        /// <summary>
+        /// Affiche un article dans un panel avec son image, son nom, son prix et un bouton "Add To Bag".
+        /// </summary>
+        /// <param name="article">L'article à afficher</param>
         private void DisplayAnArticle(Article article)
         {
-            // Création du panel contenant l'article
             Panel panel = new Panel
             {
                 Size = new Size(220, 200),
@@ -43,8 +49,7 @@ namespace WFRestaurant
                 Margin = new Padding(10)
             };
 
-            // Image de l'article
-            PictureBox pictureBox = new PictureBox
+            PictureBox imgArticle = new PictureBox
             {
                 Size = new Size(140, 70),
                 Location = new Point((panel.Width - 140) / 2, 10),
@@ -61,25 +66,23 @@ namespace WFRestaurant
             if (!string.IsNullOrEmpty(article.Image))
             {
                 string fullImagePath = Path.Combine(Application.StartupPath, "img", categoryFolder, article.Image);
-                pictureBox.Image = Image.FromFile(fullImagePath);
+                imgArticle.Image = Image.FromFile(fullImagePath);
             }
 
-            // Nom de l'article
-            Label labelNomArticle = new Label
+            Label lblNameArticle = new Label
             {
                 Text = article.Name,
-                Location = new Point(10, pictureBox.Bottom + 10),
+                Location = new Point(10, imgArticle.Bottom + 10),
                 Size = new Size(panel.Width - 20, 25),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 10, FontStyle.Bold),
                 ForeColor = Color.White
             };
 
-            // Prix de l'article
-            Label labelPrixArticle = new Label
+            Label lblPriceArticle = new Label
             {
                 Text = article.Price + ".-",
-                Location = new Point(10, labelNomArticle.Bottom + 5),
+                Location = new Point(10, lblNameArticle.Bottom + 5),
                 Size = new Size(panel.Width - 20, 20),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 9, FontStyle.Regular),
@@ -87,17 +90,18 @@ namespace WFRestaurant
             };
 
             // Bouton pour ajouter l'article au panier
-            Button buttonAddToBag = new Button
+            Button btnAddToBag = new Button
             {
                 Text = "Add To Bag",
                 Size = new Size(120, 35),
-                Location = new Point((panel.Width - 120) / 2, labelPrixArticle.Bottom + 10),
+                Location = new Point((panel.Width - 120) / 2, lblPriceArticle.Bottom + 10),
                 BackColor = Color.White,
                 ForeColor = Color.Orange,
                 FlatStyle = FlatStyle.Flat
             };
 
-            buttonAddToBag.Click += (s, e) =>
+            // Événement click du bouton pour ajouter l'article au panier
+            btnAddToBag.Click += (s, e) =>
             {
                 BagManager.AddToBag(article);
                 // Met à jour le total du panier
@@ -105,13 +109,13 @@ namespace WFRestaurant
                 MessageBox.Show($"{article.Name} a été ajouté à votre panier.");
             };
 
-            // Ajout des contrôles au panel
-            panel.Controls.Add(pictureBox);
-            panel.Controls.Add(labelNomArticle);
-            panel.Controls.Add(labelPrixArticle);
-            panel.Controls.Add(buttonAddToBag);
+            // Ajoute des contrôles au panel
+            panel.Controls.Add(imgArticle);
+            panel.Controls.Add(lblNameArticle);
+            panel.Controls.Add(lblPriceArticle);
+            panel.Controls.Add(btnAddToBag);
 
-            // Ajout du panel à la liste d'affichage
+            // Ajoute du panel à la liste d'affichage
             DisplayArticles.Controls.Add(panel);
             DisplayArticles.FlowDirection = FlowDirection.LeftToRight;
             DisplayArticles.WrapContents = true;
@@ -128,7 +132,7 @@ namespace WFRestaurant
         private void btnTout_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            foreach (var article in Database.articles)
+            foreach (var article in articles)
             {
                 DisplayAnArticle(article);
             }
@@ -138,24 +142,27 @@ namespace WFRestaurant
         private void btnNourriture_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var foods = Database.articles.Where(a => a.Category == "Food");
-            foreach (var food in foods) DisplayAnArticle(food);
+            var foods = articles.Where(a => a.Category == "Food");
+            foreach (var food in foods)
+                DisplayAnArticle(food);
         }
 
         // Affiche uniquement les boissons
         private void btnBoissons_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var drinks = Database.articles.Where(a => a.Category == "Drink");
-            foreach (var drink in drinks) DisplayAnArticle(drink);
+            var drinks = articles.Where(a => a.Category == "Drink");
+            foreach (var drink in drinks)
+                DisplayAnArticle(drink);
         }
 
         // Affiche uniquement les desserts
         private void btnDessert_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var desserts = Database.articles.Where(a => a.Category == "Dessert");
-            foreach (var dessert in desserts) DisplayAnArticle(dessert);
+            var desserts = articles.Where(a => a.Category == "Dessert");
+            foreach (var dessert in desserts)
+                DisplayAnArticle(dessert);
         }
     }
 }

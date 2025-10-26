@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\panier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\sqlitedataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\sqlitedataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Article.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Article.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\Article.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Article.cs",
+              "RelativeToolTip": "WFRestaurant\\Article.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAmwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T15:38:03.107Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -36,22 +53,21 @@
               "RelativeDocumentMoniker": "WFRestaurant\\Panier.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Panier.cs",
               "RelativeToolTip": "WFRestaurant\\Panier.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T08:49:26.551Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-10-26T15:35:02.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Homepage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Homepage.cs",
-              "RelativeDocumentMoniker": "WFRestaurant\\Homepage.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Homepage.cs [Design]",
-              "RelativeToolTip": "WFRestaurant\\Homepage.cs [Design]",
+              "Title": "Panier.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Panier.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\Panier.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Panier.cs [Design]",
+              "RelativeToolTip": "WFRestaurant\\Panier.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T06:35:04.642Z",
+              "WhenOpened": "2025-10-26T15:34:42.593Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -62,22 +78,23 @@
               "RelativeDocumentMoniker": "WFRestaurant\\Homepage.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Homepage.cs",
               "RelativeToolTip": "WFRestaurant\\Homepage.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAAKcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T08:47:32.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Panier.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Panier.cs",
-              "RelativeDocumentMoniker": "WFRestaurant\\Panier.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Panier.cs [Design]",
-              "RelativeToolTip": "WFRestaurant\\Panier.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "SqliteDataAccess.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\SqliteDataAccess.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\SqliteDataAccess.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\SqliteDataAccess.cs",
+              "RelativeToolTip": "WFRestaurant\\SqliteDataAccess.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T09:02:27.655Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-26T11:27:47.455Z",
+              "EditorCaption": ""
             }
           ]
         }

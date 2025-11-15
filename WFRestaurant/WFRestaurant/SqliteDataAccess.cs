@@ -21,43 +21,65 @@ namespace WFRestaurant
     /// </summary>
     public class SqliteDataAccess
     {
+        /// <summary>
+        /// Initialise la base de données SQLite en créant les tables nécessaires et en insérant des données d'exemple si la table est vide.
+        /// </summary>
+        /// <param name="id">Identifiant de la chaîne de connexion (par défaut : "Default").</param>
         public static void InitializeDatabase(string id = "Default")
         {
+            // Récupère la chaîne de connexion à la base de données
             string connectionString = LoadConnectionString(id);
 
+            // Extrait le chemin de la base de données à partir de la chaîne de connexion
             string dbPath = GetDatabasePathFromConnectionString(connectionString);
 
+            // Crée le fichier de la base de données s'il n'existe pas
             if (!File.Exists(dbPath))
             {
                 SQLiteConnection.CreateFile(dbPath);
-                Console.WriteLine($"Database created at {dbPath}");
             }
 
+            // Ouvre une connexion à la base de données
             using (var cnn = new SQLiteConnection(connectionString))
             {
                 cnn.Open();
 
+                // Crée la table "Article" si elle n'existe pas
                 string createTable = @"
-                    CREATE TABLE IF NOT EXISTS Article (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        Price INTEGER NOT NULL,
-                        Image TEXT,
-                        Category TEXT NOT NULL
-                    );";
+            CREATE TABLE IF NOT EXISTS Article (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Name TEXT NOT NULL,
+                Price INTEGER NOT NULL,
+                Image TEXT,
+                Category TEXT NOT NULL
+            );";
                 cnn.Execute(createTable);
 
+                // Vérifie si la table est vide
                 string countQuery = "SELECT COUNT(*) FROM Article";
                 int count = cnn.ExecuteScalar<int>(countQuery);
 
+                // Si la table est vide, insère des données d'exemple
                 if (count == 0)
                 {
                     string insert = @"
-                        INSERT INTO Article (Name, Price, Image, Category) VALUES
-                        ('Ice Cream', 5, 'iceCream.png', 'Dessert');";
-                    cnn.Execute(insert);
+                INSERT INTO Article (Name, Price, Image, Category) VALUES
+                ('Burger', 10, 'burger.png', 'Food'),
+                ('Frites', 5, 'frites.png', 'Food'),
+                ('Entrecôte', 25, 'entrecote.png', 'Food'),
+                ('Pâte Bolognaise', 15, 'patesBolo.png', 'Food'),
+                ('Eau', 1, 'eau.png', 'Drink'),
+                ('Ice Tea', 2, 'iceTea.png', 'Drink'),
+                ('Bierre', 3, 'beer.png', 'Drink'),
+                ('Vin', 4, 'wine.png', 'Drink'),
+                ('Gâteau au chocolat', 8, 'chocoCake.png', 'Dessert'),
+                ('Cheese cake', 8, 'cheeseCake.png', 'Dessert'),
+                ('Glaces', 5, 'iceCream.png', 'Dessert'),
+                ('Salade de fruits', 5, 'fruits.png', 'Dessert'),
+                ('Yogurt', 2, 'yogurt.png', 'Dessert')";
 
-                    Console.WriteLine("Sample data inserted.");
+                    cnn.Execute(insert);
+                    Console.WriteLine("Données d'exemple insérées avec succès.");
                 }
             }
         }
@@ -120,17 +142,28 @@ namespace WFRestaurant
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        /// <summary>
+        /// Extrait le chemin de la base de données à partir de la chaîne de connexion.
+        /// </summary>
+        /// <param name="connectionString">Chaîne de connexion contenant le chemin de la base de données.</param>
+        /// <returns>Chemin complet de la base de données.</returns>
+        /// <exception cref="Exception">Lancée si le chemin de la base de données n'est pas trouvé dans la chaîne de connexion.</exception>
         private static string GetDatabasePathFromConnectionString(string connectionString)
         {
+            // Divise la chaîne de connexion en parties distinctes
             var parts = connectionString.Split(';');
+
+            // Parcourt chaque partie pour trouver celle qui contient "Data Source"
             foreach (var part in parts)
             {
                 if (part.Trim().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase))
                 {
+                    // Extrait et retourne le chemin de la base de données
                     return part.Trim().Substring("Data Source=".Length).Trim();
                 }
             }
+            // Lance une exception si le chemin n'est pas trouvé
             throw new Exception("Impossible de trouver le chemin de la base de données dans la connection string !");
         }
     }
-} 
+}

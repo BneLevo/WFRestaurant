@@ -19,5 +19,5 @@ Users can browse food, drinks, and desserts, filter by category, and add items t
 
 - **C# (.NET Windows Forms):** UI and business logic  
 - **SQLite + Dapper:** Lightweight database and fast queries  
-- **Object-Oriented Programming (OOP):** Inheritance, encapsulation, polymorphism 
+- **Object-Oriented Programming (OOP):** Inheritance, encapsulation 
 - **GitHub:** Version control and project management

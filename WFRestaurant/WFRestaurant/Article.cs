@@ -28,14 +28,16 @@ namespace WFRestaurant
         /// Nom de l'article. Doit être strictement rempli.
         /// </summary>
         /// <exception cref="Exception">Lancée si le nom est null</exception>
-        public string Name { get => _name; 
-            set 
+        public string Name
+        {
+            get => _name;
+            set
             {
                 if (value == null)
                     throw new Exception("Le nom ne peut pas être nul");
                 else
                     _name = value;
-            } 
+            }
         }
 
         /// <summary>
@@ -62,8 +64,8 @@ namespace WFRestaurant
         /// Prix de l'article. Doit être strictement positif.
         /// </summary>
         /// <exception cref="Exception">Lancée si le prix est inférieur ou égal à zéro.</exception>
-        public string Image 
-        { 
+        public string Image
+        {
             get => _image;
             set
             {
@@ -72,7 +74,7 @@ namespace WFRestaurant
                     throw new Exception("L'image ne peut pas être nul");
                 else
                     _image = value;
-            } 
+            }
         }
 
         /// <summary>
@@ -87,7 +89,7 @@ namespace WFRestaurant
         {
 
         }
-            
+
         /// <summary>
         /// Constructeur permettant d'initialiser un nouvel article.
         /// </summary>

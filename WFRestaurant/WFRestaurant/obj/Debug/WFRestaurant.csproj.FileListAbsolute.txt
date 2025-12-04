@@ -24,3 +24,4 @@ C:\Users\Admin\Documents\GitHub\WFrestaurant\WFRestaurant\WFRestaurant\bin\Debug
 C:\Users\Admin\Documents\GitHub\WFrestaurant\WFRestaurant\WFRestaurant\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Admin\Documents\GitHub\WFrestaurant\WFRestaurant\WFRestaurant\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Admin\Documents\GitHub\WFrestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestau.1960C8D8.Up2Date
+C:\Users\Admin\Documents\GitHub\WFrestaurant\WFRestaurant\WFRestaurant\obj\Debug\WFRestaurant.Login.resources

@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WFRestaurant.models;
 
 
 namespace WFRestaurant
@@ -39,7 +40,7 @@ namespace WFRestaurant
             InitializeComponent();
             SqliteDataAccess.InitializeDatabase();
             // Chargement des articles depuis la base de données
-            articles = SqliteDataAccess.LoadArticles();
+            articles = ArticleDataAccess.LoadArticles();
             foreach (var article in articles)
             {
                 DisplayAnArticle(article);

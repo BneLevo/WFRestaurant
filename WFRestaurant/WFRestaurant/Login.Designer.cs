@@ -34,6 +34,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.header2 = new WFRestaurant.Header();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEmail
@@ -92,11 +93,21 @@
             this.header2.Size = new System.Drawing.Size(542, 100);
             this.header2.TabIndex = 6;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(169, 375);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(163, 30);
+            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 450);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.header2);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.txtPassword);
@@ -119,5 +130,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblLogin;
         private Header header2;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

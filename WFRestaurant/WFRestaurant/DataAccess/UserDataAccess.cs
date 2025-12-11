@@ -5,11 +5,10 @@ using System.Data.SQLite;
 
 namespace WFRestaurant
 {
-    public static class UserDataAccess
+    public class UserDataAccess
     {
-        //private static string ConnString => Program.ConnString;
+        //private static string ConnString => SqliteDataAccess.LoadConnectionString();
 
-        //// Kullanıcıyı email + password ile getir
         //public static User GetUserByEmailAndPassword(string email, string password)
         //{
         //    using (IDbConnection cnn = new SQLiteConnection(ConnString))
@@ -19,7 +18,6 @@ namespace WFRestaurant
         //    }
         //}
 
-        //// Yeni kullanıcı ekle (register için)
         //public static void AddUser(User user)
         //{
         //    using (IDbConnection cnn = new SQLiteConnection(ConnString))

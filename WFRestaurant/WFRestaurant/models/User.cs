@@ -18,7 +18,7 @@ namespace WFRestaurant
     {
         private int _idUser;
         private string _email;
-        private string _password;
+        private string _passwordHash;
 
         private const int MIN_PASSWORD_LENGHT = 6;
 
@@ -53,9 +53,9 @@ namespace WFRestaurant
         /// Doit être non nul.
         /// </summary>
         /// <exception cref="Exception">Lancée si le mot de passe est null.</exception>
-        public string Password
+        public string PasswordHash
         {
-            get => _password;
+            get => _passwordHash;
             set
             {
                 if (value == null)
@@ -63,7 +63,7 @@ namespace WFRestaurant
                 else if (value.Length < MIN_PASSWORD_LENGHT)
                     throw new Exception($"Le mot de passe doit contenir au moins {MIN_PASSWORD_LENGHT} caractères");
                 else
-                    _password = value;
+                    _passwordHash = value;
             }
         }
 
@@ -80,7 +80,7 @@ namespace WFRestaurant
         /// </summary>
         /// <param name="email">Adresse email de l'utilisateur.</param>
         /// <param name="password">Mot de passe de l'utilisateur.</param>
-        public User(string email, string password) : this(0, email, password)
+        public User(string email, string passwordHash) : this(0, email, passwordHash)
         {
         }
 
@@ -90,11 +90,11 @@ namespace WFRestaurant
         /// <param name="idUser">Identifiant de l'utilisateur.</param>
         /// <param name="email">Adresse email.</param>
         /// <param name="password">Mot de passe.</param>
-        public User(int idUser, string email, string password)
+        public User(int idUser, string email, string passwordHash)
         {
             IdUser = idUser;
             Email = email;
-            Password = password;
+            PasswordHash = passwordHash;
         }
 
         /// <summary>

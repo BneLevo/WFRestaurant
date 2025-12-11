@@ -17,32 +17,22 @@ namespace WFRestaurant
             InitializeComponent();
         }
 
-        //private void btnLogin_Click(object sender, EventArgs e)
-        //{
-        //    string email = txtEmail.Text.Trim();
-        //    string password = txtPassword.Text.Trim();
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            var user = UserDataAccess.GetUser(txtEmail.Text, txtPassword.Text);
 
-        //    if (email == "" || password == "")
-        //    {
-        //        MessageBox.Show("Please fill all fields.");
-        //        return;
-        //    }
+            if (user == null)
+            {
+                MessageBox.Show("Email ou mot de passe incorrect !");
+            }
+            else
+            {
+                MessageBox.Show("Connexion réussie !");
 
-        //    User user = UserDataAccess.GetUserByEmailAndPassword(email, password);
-
-        //    if (user == null)
-        //    {
-        //        MessageBox.Show("Wrong email or password.");
-        //        return;
-        //    }
-
-        //    Program.CurrentUser = user;
-        //    MessageBox.Show("Login successful!");
-
-        //    MainPage mp = new MainPage();
-        //    mp.Show();
-        //    this.Hide();
-        //}
-
+                Homepage homepage = new Homepage();
+                homepage.Show();
+                this.Hide();
+            }
+        }
     }
 }

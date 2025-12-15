@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\dataaccess\\userdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\dataaccess\\userdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\dataaccess\\userdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\dataaccess\\userdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|c:\\users\\admin\\documents\\github\\wfrestaurant\\wfrestaurant\\wfrestaurant\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\wfrestaurant\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87943A88-0C36-49A9-9D5F-231C2EDBE968}|WFRestaurant\\WFRestaurant.csproj|solutionrelative:wfrestaurant\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,50 +42,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\App.config",
-              "RelativeDocumentMoniker": "WFRestaurant\\App.config",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\App.config",
-              "RelativeToolTip": "WFRestaurant\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-12-11T10:08:48.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\models\\User.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\models\\User.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\models\\User.cs",
               "RelativeToolTip": "WFRestaurant\\models\\User.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC4AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAywFsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T10:03:59.954Z",
+              "WhenOpened": "2025-12-15T12:32:33.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\Login.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs",
               "RelativeToolTip": "WFRestaurant\\Login.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAnwB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T09:38:01.785Z",
+              "WhenOpened": "2025-12-15T11:58:58.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\Login.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs [Design]",
+              "RelativeToolTip": "WFRestaurant\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T11:58:29.617Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Register.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\Register.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Register.cs",
+              "RelativeToolTip": "WFRestaurant\\Register.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBwAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:32:41.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Register.cs",
+              "RelativeDocumentMoniker": "WFRestaurant\\Register.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Register.cs [Design]",
+              "RelativeToolTip": "WFRestaurant\\Register.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:23:38.142Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Program.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\Program.cs",
@@ -94,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Homepage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Homepage.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\Homepage.cs",
@@ -106,25 +134,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs",
-              "RelativeDocumentMoniker": "WFRestaurant\\Login.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\Login.cs [Design]",
-              "RelativeToolTip": "WFRestaurant\\Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T14:37:00.402Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UserDataAccess.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\DataAccess\\UserDataAccess.cs",
               "RelativeDocumentMoniker": "WFRestaurant\\DataAccess\\UserDataAccess.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\WFrestaurant\\WFRestaurant\\WFRestaurant\\DataAccess\\UserDataAccess.cs",
               "RelativeToolTip": "WFRestaurant\\DataAccess\\UserDataAccess.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDEAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T14:30:07.54Z",
               "EditorCaption": ""

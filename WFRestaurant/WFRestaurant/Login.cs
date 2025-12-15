@@ -34,5 +34,12 @@ namespace WFRestaurant
                 this.Hide();
             }
         }
+
+        private void linkLabelNoAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+            this.Hide();
+        }
     }
 }

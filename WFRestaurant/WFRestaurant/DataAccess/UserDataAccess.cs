@@ -15,25 +15,43 @@ namespace WFRestaurant
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                string query = "SELECT * FROM tbl_user WHERE email = @Email AND passwordHash = @Password";
+                string query = "SELECT * FROM tbl_user WHERE email = @Email";
 
-                var result = cnn.QueryFirstOrDefault<User>(query, new { Email = email, Password = password });
+                var user = cnn.QueryFirstOrDefault<User>(query, new { Email = email });
 
-                return result; // soit un User, soit nullv b 
+                if (user == null)
+                    return null;
+
+                bool isValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
+
+                if (!isValid)
+                    return null;
+
+                return user;
             }
         }
+
 
         /// <summary>
         /// Insère un nouvel utilisateur dans la base.
         /// </summary>
-        public static void InsertUser(User user)
+        public static void InsertUser(string email, string password)
         {
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+                throw new Exception("Email ou mot de passe vide !");
+
+            if (password.Length < 6)
+                throw new Exception("Le mot de passe doit contenir au moins 6 caractères.");
+
+            string hash = BCrypt.Net.BCrypt.HashPassword(password);
+
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                string query = "INSERT INTO tbl_user (email, passwordHash) VALUES (@Email, @Password)";
-                cnn.Execute(query, user);
+                string query = "INSERT INTO tbl_user (email, passwordHash) VALUES (@Email, @PasswordHash)";
+                cnn.Execute(query, new { Email = email, PasswordHash = hash });
             }
         }
+
 
         /// <summary>
         /// Récupère un utilisateur via son ID.

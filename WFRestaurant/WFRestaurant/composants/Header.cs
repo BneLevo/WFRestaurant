@@ -23,37 +23,36 @@ namespace WFRestaurant
     /// </summary>
     public partial class Header : UserControl
     {
-        /// <summary>
-        /// Constructeur par défaut du contrôle Header.
-        /// Initialise les composants graphiques.
-        /// </summary>
+        public User CurrentUser { get; set; }
+
         public Header()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Événement déclenché lors du clic sur le logo.
-        /// Affiche la page d'accueil et masque la fenêtre parente actuelle.
-        /// </summary>
         private void picLogo_Click(object sender, EventArgs e)
         {
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(CurrentUser);
             homepage.Show();
-            // Masque la fenêtre parente (la fenêtre actuelle)
-            this.Parent.Hide();
+            this.FindForm()?.Hide();
         }
 
-        /// <summary>
-        /// Événement déclenché lors du clic sur l'icône du panier.
-        /// Affiche la fenêtre du panier et masque la fenêtre parente actuelle.
-        /// </summary>
         private void picPanier_Click(object sender, EventArgs e)
         {
-            Panier panier = new Panier();
+            if (CurrentUser == null)
+            {
+                MessageBox.Show(
+                    "Veuillez vous connecter pour accéder au panier.",
+                    "Connexion requise",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return;
+            }
+
+            Panier panier = new Panier(CurrentUser);
             panier.Show();
-            // Masque la fenêtre parente (la fenêtre actuelle)
-            this.Parent.Hide();
+            this.FindForm()?.Hide();
         }
     }
 }

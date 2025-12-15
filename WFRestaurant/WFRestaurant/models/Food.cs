@@ -33,7 +33,7 @@ namespace WFRestaurant
         /// <param name="name">Nom de l'article.</param>
         /// <param name="price">Prix de l'article.</param>
         /// <param name="image">Chemin ou nom de l'image associée à l'article.</param>
-        public Food(string name, int price, string image) : base(name, price, image)
+        public Food(int id, string name, int price, string image) : base(id, name, price, image)
         {
             Category = "Food";
         }

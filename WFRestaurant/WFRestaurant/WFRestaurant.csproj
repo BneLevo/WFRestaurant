@@ -80,8 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\PanierDataAccess.cs" />
     <Compile Include="models\Article.cs" />
-    <Compile Include="BagManager.cs" />
     <Compile Include="models\Dessert.cs" />
     <Compile Include="models\Drink.cs" />
     <Compile Include="models\Food.cs" />

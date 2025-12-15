@@ -19,10 +19,16 @@ namespace WFRestaurant
     /// </summary>
     public abstract class Article
     {
+        private int _id;
         private string _name;
         private int _price;
         private string _image;
         private string _category;
+
+        /// <summary>
+        /// Identifiant unique de l'article.
+        /// </summary>
+        public int Id { get => _id; set => _id = value; }
 
         /// /// <summary>
         /// Nom de l'article. Doit être strictement rempli.
@@ -33,8 +39,8 @@ namespace WFRestaurant
             get => _name;
             set
             {
-                if (value == null)
-                    throw new Exception("Le nom ne peut pas être nul");
+                if (value == null || string.IsNullOrWhiteSpace(value)) // Ajout de la vérification IsNullOrWhiteSpace
+                    throw new Exception("Le nom ne peut pas être nul ou vide.");
                 else
                     _name = value;
             }
@@ -58,22 +64,16 @@ namespace WFRestaurant
         }
 
         /// <summary>
-        /// Chemin ou nom de l'image associée à l'article.
+        /// Chemin ou nom de l'image associée à l'article. Doit être non nul.
         /// </summary>
-        /// /// <summary>
-        /// Prix de l'article. Doit être strictement positif.
-        /// </summary>
-        /// <exception cref="Exception">Lancée si le prix est inférieur ou égal à zéro.</exception>
+        /// <exception cref="Exception">Lancée si l'image est null.</exception>
         public string Image
         {
             get => _image;
             set
             {
-                // Vérifie que le prix est supérieur à zéro
-                if (value == null)
-                    throw new Exception("L'image ne peut pas être nul");
-                else
-                    _image = value;
+                // Laisser l'image potentiellement nulle ou vide pour la flexibilité (si pas d'image)
+                _image = value;
             }
         }
 
@@ -85,7 +85,7 @@ namespace WFRestaurant
         /// <summary>
         /// Constructeur par défaut de la classe Article.
         /// </summary>
-        public Article() : this("NULL", 1, "")
+        public Article() : this(0, "Article Inconnu", 1, "")
         {
 
         }
@@ -93,11 +93,13 @@ namespace WFRestaurant
         /// <summary>
         /// Constructeur permettant d'initialiser un nouvel article.
         /// </summary>
+        /// <param name="id">Identifiant de l'article.</param>
         /// <param name="name">Nom de l'article.</param>
         /// <param name="price">Prix de l'article (doit être positif).</param>
         /// <param name="image">Chemin ou nom de l'image associée à l'article.</param>
-        public Article(string name, int price, string image)
+        public Article(int id, string name, int price, string image)
         {
+            Id = id;
             Name = name;
             Price = price;
             Image = image;
@@ -114,35 +116,25 @@ namespace WFRestaurant
 
         /// <summary>
         /// Compare l'article courant avec un autre objet pour déterminer s'ils sont égaux.
-        /// Deux articles sont considérés égaux s'ils ont le même nom et le même prix.
+        /// Deux articles sont considérés égaux s'ils ont le même Id.
         /// </summary>
-        /// <param name="obj">Objet à comparer avec l'article courant.</param>
-        /// <returns>
-        /// <c>true</c> si l'objet passé en paramètre est un Article avec le même nom et le même prix ;
-        /// sinon, <c>false</c>.
-        /// </returns>
         public override bool Equals(object obj)
         {
-            // Vérifie si l'objet est null ou d'un type différent
             if (obj == null || GetType() != obj.GetType())
                 return false;
 
-            // Conversion de l'objet en Article
             Article other = (Article)obj;
 
-            // Comparaison des propriétés Name et Price
-            return this.Name == other.Name && this.Price == other.Price;
+            // La comparaison par ID est souvent plus fiable pour l'unicité des Articles.
+            return this.Id == other.Id; 
         }
 
         /// <summary>
-        /// Retourne un code de hachage pour l'article courant.
-        /// Le code de hachage est calculé à partir des propriétés Name et Price.
+        /// Retourne un code de hachage pour l'article courant basé sur l'Id.
         /// </summary>
-        /// <returns>Code de hachage basé sur le nom et le prix de l'article.</returns>
         public override int GetHashCode()
         {
-            // Utilisation d'un tuple pour calculer le code de hachage
-            return (Name, Price).GetHashCode();
+            return Id.GetHashCode();
         }
     }
 }

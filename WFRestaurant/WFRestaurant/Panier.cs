@@ -1,19 +1,15 @@
 ﻿/**************************************************************************
- * Nom du fichier : Panier.cs
- * Auteur : Ozgun Levent
- * Date de création : 13.11.2025
- * Description : Fenêtre affichant le panier et permettant de gérer les articles ajoutés.
- **************************************************************************/
+* Nom du fichier : Panier.cs
+* Auteur : Ozgun Levent
+* Date de création : 13.11.2025
+* Description : Fenêtre affichant le panier et permettant de gérer les articles ajoutés.
+**************************************************************************/
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WFRestaurant
@@ -24,47 +20,52 @@ namespace WFRestaurant
     /// </summary>
     public partial class Panier : Form
     {
-        public Panier()
+        private User currentUser;
+
+        public Panier(User user)
         {
             InitializeComponent();
+            currentUser = user;
+            // Si l'utilisateur est null, le formulaire chargera vide (géré dans Panier_Load)
         }
 
-        /// <summary>
-        /// Événement déclenché au chargement de la fenêtre.
-        /// Affiche les articles du panier et met à jour le total.
-        /// </summary>
         private void Panier_Load(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            // Affiche les articles du panier
-            DisplayBag(DisplayArticles);
-            // Met à jour le total du panier
+            if (currentUser != null)
+            {
+                DisplayBag(DisplayArticles);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez vous connecter pour voir votre panier.", "Accès Restreint", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             UpdateBagTotal();
         }
 
-        /// <summary>
-        /// Met à jour le label affichant le total du panier.
-        /// </summary>
         private void UpdateBagTotal()
         {
-            int total = BagManager.Bag.Sum(a => a.Price);
-            lblTotal.Text = $"Total : {total}.-";
+            if (currentUser != null)
+            {
+                int total = PanierDataAccess.GetUserPanier(currentUser.IdUser).Sum(a => a.Price);
+                lblTotal.Text = $"Total : {total}.-";
+            }
+            else
+            {
+                lblTotal.Text = "Total : 0.-";
+            }
         }
 
-        /// <summary>
-        /// Affiche dynamiquement tous les articles présents dans le panier (BagManager.Bag)
-        /// sous forme de panneaux contenant une image, un nom, un prix et un bouton de suppression.
-        /// </summary>
-        /// <param name="displayPanel">
-        /// Le conteneur (FlowLayoutPanel) dans lequel les articles du panier seront affichés.
-        /// </param>
         private void DisplayBag(FlowLayoutPanel displayPanel)
         {
             displayPanel.Controls.Clear();
 
-            foreach (var article in BagManager.Bag)
+            if (currentUser == null) return;
+
+            var bag = PanierDataAccess.GetUserPanier(currentUser.IdUser);
+
+            foreach (var article in bag)
             {
-                // Création du panel pour chaque article
                 Panel pnlArticle = new Panel
                 {
                     Size = new Size(220, 200),
@@ -72,7 +73,6 @@ namespace WFRestaurant
                     Margin = new Padding(10)
                 };
 
-                // Affichage de l'image de l'article
                 PictureBox picArticleImage = new PictureBox
                 {
                     Size = new Size(140, 70),
@@ -80,14 +80,24 @@ namespace WFRestaurant
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
 
-                string categoryFolder = article.Category.ToLower();
+                // Chargement d'image sécurisé
+                string categoryFolder = article.Category?.ToLower() ?? "default";
                 if (!string.IsNullOrEmpty(article.Image))
                 {
                     string fullImagePath = Path.Combine(Application.StartupPath, "img", categoryFolder, article.Image);
-                    picArticleImage.Image = Image.FromFile(fullImagePath);
+                    if (File.Exists(fullImagePath))
+                    {
+                        try
+                        {
+                            picArticleImage.Image = Image.FromFile(fullImagePath);
+                        }
+                        catch
+                        {
+                            // Gérer l'erreur de chargement d'image
+                        }
+                    }
                 }
 
-                // Nom de l'article
                 Label lblArticleName = new Label
                 {
                     Text = article.Name,
@@ -98,7 +108,6 @@ namespace WFRestaurant
                     ForeColor = Color.White
                 };
 
-                // Prix de l'article
                 Label lblArticlePrice = new Label
                 {
                     Text = $"{article.Price}.-",
@@ -109,7 +118,6 @@ namespace WFRestaurant
                     ForeColor = Color.White
                 };
 
-                // Bouton pour supprimer l'article du panier
                 Button btnRemoveFromBag = new Button
                 {
                     Text = "Retirer du panier",
@@ -120,22 +128,22 @@ namespace WFRestaurant
                     FlatStyle = FlatStyle.Flat
                 };
 
+                // Événement de suppression
                 btnRemoveFromBag.Click += (s, e) =>
                 {
-                    BagManager.RemoveFromBag(article);
+                    PanierDataAccess.RemoveArticleFromUser(currentUser.IdUser, article.Id);
                     MessageBox.Show($"{article.Name} a été retiré du panier.");
-                    // Rafraîchir l'affichage
+
+                    // Recharger et mettre à jour l'affichage
                     DisplayBag(DisplayArticles);
                     UpdateBagTotal();
                 };
 
-                // Ajouter des contrôles au panel
                 pnlArticle.Controls.Add(picArticleImage);
                 pnlArticle.Controls.Add(lblArticleName);
                 pnlArticle.Controls.Add(lblArticlePrice);
                 pnlArticle.Controls.Add(btnRemoveFromBag);
 
-                // Ajouter le panel au conteneur principal
                 displayPanel.Controls.Add(pnlArticle);
             }
         }

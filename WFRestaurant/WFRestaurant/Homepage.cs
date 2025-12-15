@@ -1,19 +1,15 @@
 ﻿/**************************************************************************
- * Nom du fichier : Homepage.cs
- * Auteur : Ozgun Levent
- * Date de création : 13.11.2025
- * Description : Fenêtre principale affichant les articles disponibles.
- **************************************************************************/
+* Nom du fichier : Homepage.cs
+* Auteur : Ozgun Levent
+* Date de création : 13.11.2025
+* Description : Fenêtre principale affichant les articles disponibles.
+**************************************************************************/
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFRestaurant.models;
 
@@ -31,16 +27,31 @@ namespace WFRestaurant
         /// </summary>
         private List<Article> articles = new List<Article>();
 
+        private User currentUser;
+
         /// <summary>
         /// Constructeur de la fenêtre Homepage.
-        /// Initialise le formulaire et charge les articles depuis la base de données.
+        /// Initialise le formulaire, charge les articles et met à jour le total du panier.
         /// </summary>
-        public Homepage()
+        public Homepage(User user)
         {
             InitializeComponent();
-            SqliteDataAccess.InitializeDatabase();
-            // Chargement des articles depuis la base de données
-            articles = ArticleDataAccess.LoadArticles();
+            currentUser = user;
+            header1.CurrentUser = currentUser;
+            // Assurez-vous que SqliteDataAccess et la base de données existent
+            // SqliteDataAccess.InitializeDatabase(); 
+
+            try
+            {
+                articles = ArticleDataAccess.LoadArticles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors du chargement des articles : {ex.Message}", "Erreur BDD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                articles = new List<Article>(); // Initialiser à vide en cas d'erreur
+            }
+
+            DisplayArticles.Controls.Clear();
             foreach (var article in articles)
             {
                 DisplayAnArticle(article);
@@ -48,12 +59,15 @@ namespace WFRestaurant
             UpdateBagTotal();
         }
 
+
         /// <summary>
         /// Affiche un article dans un panel avec son image, son nom, son prix et un bouton "Ajouter au panier".
         /// </summary>
         /// <param name="article">L'article à afficher.</param>
         private void DisplayAnArticle(Article article)
         {
+            // ... (Panel, PictureBox, Label créations sont ici)
+
             // Création du panel pour l'article
             Panel panel = new Panel
             {
@@ -71,17 +85,23 @@ namespace WFRestaurant
             };
 
             // Regarde dans quel dossier se trouve l'image
-            string categoryFolder = "";
-            if (article is Food) categoryFolder = "food";
-            else if (article is Drink) categoryFolder = "drink";
-            else if (article is Dessert) categoryFolder = "dessert";
+            string categoryFolder = article.Category?.ToLower() ?? "default";
 
             // Chargement de l'image si elle existe
             if (!string.IsNullOrEmpty(article.Image))
             {
                 string fullImagePath = Path.Combine(Application.StartupPath, "img", categoryFolder, article.Image);
                 if (File.Exists(fullImagePath))
-                    imgArticle.Image = Image.FromFile(fullImagePath);
+                {
+                    try
+                    {
+                        imgArticle.Image = Image.FromFile(fullImagePath);
+                    }
+                    catch
+                    {
+                        // Gérer l'erreur de chargement d'image
+                    }
+                }
             }
 
             // Nom de l'article
@@ -109,7 +129,7 @@ namespace WFRestaurant
             // Bouton pour ajouter l'article au panier
             Button btnAddToBag = new Button
             {
-                Text = "Add To Bag",
+                Text = "Ajouter au panier", // FR: "Ajouter au panier"
                 Size = new Size(120, 35),
                 Location = new Point((panel.Width - 120) / 2, lblPriceArticle.Bottom + 10),
                 BackColor = Color.White,
@@ -120,10 +140,17 @@ namespace WFRestaurant
             // Événement click du bouton pour ajouter l'article au panier
             btnAddToBag.Click += (s, e) =>
             {
-                BagManager.AddToBag(article);
+                if (currentUser == null)
+                {
+                    MessageBox.Show("Veuillez vous connecter d'abord pour ajouter un article au panier.", "Connexion Requise", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                PanierDataAccess.AddArticleToUser(currentUser.IdUser, article.Id);
                 UpdateBagTotal();
                 MessageBox.Show($"{article.Name} a été ajouté à votre panier.");
             };
+
 
             // Ajoute des contrôles au panel
             panel.Controls.Add(imgArticle);
@@ -142,9 +169,18 @@ namespace WFRestaurant
         /// </summary>
         private void UpdateBagTotal()
         {
-            int total = BagManager.Bag.Sum(a => a.Price);
-            lblTotal.Text = $"Total : {total}.-";
+            if (currentUser != null)
+            {
+                // Utilise la méthode GetUserPanier pour calculer le total
+                int total = PanierDataAccess.GetUserPanier(currentUser.IdUser).Sum(a => a.Price);
+                lblTotal.Text = $"Total : {total}.-";
+            }
+            else
+            {
+                lblTotal.Text = "Total : 0.-";
+            }
         }
+
 
         /// <summary>
         /// Affiche tous les articles disponibles.
@@ -164,7 +200,7 @@ namespace WFRestaurant
         private void btnNourriture_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var foods = articles.Where(a => a.Category == "Food");
+            var foods = articles.Where(a => a is Food); // Utilisation de l'opérateur 'is' pour plus de robustesse
             foreach (var food in foods)
                 DisplayAnArticle(food);
         }
@@ -175,7 +211,7 @@ namespace WFRestaurant
         private void btnBoissons_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var drinks = articles.Where(a => a.Category == "Drink");
+            var drinks = articles.Where(a => a is Drink);
             foreach (var drink in drinks)
                 DisplayAnArticle(drink);
         }
@@ -186,7 +222,7 @@ namespace WFRestaurant
         private void btnDessert_Click(object sender, EventArgs e)
         {
             DisplayArticles.Controls.Clear();
-            var desserts = articles.Where(a => a.Category == "Dessert");
+            var desserts = articles.Where(a => a is Dessert);
             foreach (var dessert in desserts)
                 DisplayAnArticle(dessert);
         }

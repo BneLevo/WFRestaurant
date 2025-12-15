@@ -29,7 +29,7 @@ namespace WFRestaurant
             {
                 MessageBox.Show("Connexion réussie !");
 
-                Homepage homepage = new Homepage();
+                Homepage homepage = new Homepage(user);
                 homepage.Show();
                 this.Hide();
             }

@@ -30,7 +30,9 @@ namespace WFRestaurant
 
                 MessageBox.Show("Le compte a été créé avec succès !");
 
-                Homepage homepage = new Homepage();
+                var user = UserDataAccess.GetUser(email, password);
+
+                Homepage homepage = new Homepage(user);
                 homepage.Show();
                 this.Hide();
             }

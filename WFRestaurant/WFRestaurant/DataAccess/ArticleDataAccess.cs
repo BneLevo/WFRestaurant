@@ -2,52 +2,52 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Windows.Forms;
 using Dapper;
+using WFRestaurant; // EKLE: Article, Food, Drink, Dessert sınıflarına erişim için
 
 namespace WFRestaurant.models
 {
     class ArticleDataAccess
     {
-
         /// <summary>
-        /// Charge et retourne la liste de tous les articles présents dans la base de données.
+        /// Charge tous les articles disponibles depuis la base de données.
         /// </summary>
-        /// <returns>Liste d'objets Article (Food, Drink, Dessert).</returns>
         public static List<Article> LoadArticles()
         {
-            // Utilisation d'un bloc using pour garantir la fermeture automatique de la connexion
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
                 cnn.Open();
-                // Exécution d'une requête pour récupérer tous les articles
                 var rows = cnn.Query<dynamic>("SELECT * FROM Article");
                 List<Article> articles = new List<Article>();
 
                 foreach (var row in rows)
                 {
-                    // Récupération des propriétés de chaque article
+                    int id = (int)(long)row.id;
                     string name = row.Name;
-                    int price = (int)row.Price;
+                    int price = Convert.ToInt32(row.Price); // Conversion sécurisée 
                     string image = row.Image;
                     string type = row.Category;
 
+
                     Article article = null;
 
-                    // Instanciation de l'objet Article selon son type
                     switch (type)
                     {
                         case "Food":
-                            article = new Food(name, price, image);
+                            article = new Food(id, name, price, image);
                             break;
                         case "Drink":
-                            article = new Drink(name, price, image);
+                            article = new Drink(id, name, price, image);
                             break;
                         case "Dessert":
-                            article = new Dessert(name, price, image);
+                            article = new Dessert(id, name, price, image);
+                            break;
+                        default:
+                            // Ignorer ou logguer les articles avec une catégorie inconnue
                             break;
                     }
 
-                    // Ajout de l'article à la liste si l'instanciation a réussi
                     if (article != null)
                         articles.Add(article);
                 }
